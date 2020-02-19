@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".chocolateAct">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chocolate Mug"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2 tablespoons vegetable oil ¼ cup whole milk (60 ml) 1 large egg ½ teaspoon vanilla extract ⅓ cup self-rising flour (40 grams) ¼ cup granulated sugar (50 grams) 2 tablespoons unsweetened cocoa powder (10 grams) ¼ cup semi-sweet chocolate chips (43 grams)" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -15,12 +15,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 import static androidx.recyclerview.widget.RecyclerView.*;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener
+public class MainActivity extends AppCompatActivity
 {
     RecyclerView rc;
-    String[] items;
+    ArrayList<String> items = new ArrayList<>();
+    ArrayList<String> des = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,46 +33,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        rc = (RecyclerView) findViewById(R.id.recipe);
-        rc.setLayoutManager(new LinearLayoutManager(this));
-        rc.setAdapter(new RecipeAdapter(this, items));
+        writeRecipes ();
     }
 
-    @Override
-    public void onClick(View view)
+    public void writeRecipes ()
     {
-        Intent i = new Intent (getBaseContext(), RecipeActivity.class);
-        startActivity (i);
+        items.add ("Teriyaki Chicken");
+        des.add ("Because it is exotic for many people!");
+
+        items.add ("Two-Minute Chocolate Mug Cake");
+        des.add ("Because everyone needs a backup food to eat.");
+
+        items.add ("Homemade Pizza");
+        items.add ("Because we all need something to chill to.");
+
+        rcView ();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void rcView ()
+    {
+        rc = findViewById (R.id.recipe);
+        RecipeAdapter adapt = new RecipeAdapter (this, items, des);
+        rc.setAdapter (adapt);
+        rc.setLayoutManager (new LinearLayoutManager (this));
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-}
+} //END OF PROJECT

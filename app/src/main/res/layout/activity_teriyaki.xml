@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".teriyakiAct">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teriyaki Chicken"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Soy sauce (use a light soy to reduce the sodium content) Sugar (white is the preferred sugar used in a traditional Teriyaki sauce, however I prefer using brown sugar) Sake (or a rice wine vinegar if you have it, but any white vinegar will work) Mirin (This is an optional ingredient because I understand not many readers have it or can find it. If you want to get yourself a bottle, any Asian or Japanese store will stock it. Otherwise, you can always order it online. Or just skip it all together! Garlic (because…well, garlic) — you can substitute garlic for ginger if you prefer!" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

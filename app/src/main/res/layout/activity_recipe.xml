@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_ly"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecipeActivity">
@@ -10,7 +11,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Triple the Ginger Cookies "
+        android:text="TextView"
         android:textSize="36sp" />
 
     <TextView
@@ -18,5 +19,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:text="In a large bowl, cream together the butter and brown sugar until smooth. Beat in the egg and molasses. Combine the flour, ground ginger, baking soda, and salt; stir into the molasses mixture using a wooden spoon. Mix in the fresh and crystallized gingers. Cover, and refrigerate dough for at least 2 hours, or overnight." />
+        android:text="TextView" />
 </RelativeLayout>

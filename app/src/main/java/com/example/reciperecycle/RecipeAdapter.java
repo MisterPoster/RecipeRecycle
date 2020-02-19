@@ -5,53 +5,83 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+import java.util.ArrayList;
+
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder>
 {
     Context c;
-    String[] r;
+    ArrayList<String> r;
+    ArrayList<String> d;
 
-    public RecipeAdapter (Context c, String[] r)
+    public RecipeAdapter (Context c, ArrayList<String> r, ArrayList<String> d)
     {
         this.c = c;
         this.r = r;
+        this.d = d;
     }
 
-    @NonNull
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public ViewHolder onCreateViewHolder (ViewGroup parent, int viewType)
     {
-        LayoutInflater inflater = LayoutInflater.from (c);
-        View row = inflater.inflate (R.layout.content_row, parent, false);
-        Item item = new Item(row);
-        return item;
+        View view = LayoutInflater.from (parent.getContext ()).inflate (R.layout.activity_recipe, parent, false);
+        ViewHolder base = new ViewHolder (view);
+
+        return base;
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position)
+
+    public void onBindViewHolder (ViewHolder holder, final int position)
     {
-        ((Item) holder).tv.setText ("Cookies" + position);
+        String name = r.get (position);
+        holder.tv_recipe.setText (name);
+
+        holder.parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                if (r.get (position).equals ("Teriyaki Chicken"))
+                {
+                    Intent i = new Intent (c, teriyakiAct.class);
+                    c.startActivity(i);
+                }
+                if (r.get (position).equals ("Two-Minute Chocolate Mug Cake"))
+                {
+                    Intent i = new Intent (c, chocolateAct.class);
+                    c.startActivity(i);
+                }
+                if (r.get (position).equals ("Homemade Pizza"))
+                {
+                    Intent i = new Intent (c, pizzaAct.class);
+                    c.startActivity(i);
+                }
+            }
+        });
     }
 
-    @Override
-    public int getItemCount()
+    public int getItemCount ()
     {
-        return r.length;
+        return r.size ();
     }
 
-    class Item extends RecyclerView.ViewHolder
+    class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView tv;
+        TextView tv_recipe;
+        TextView tv_des;
 
-        public Item(@NonNull View itemView)
+        LinearLayout parent;
+
+        public ViewHolder (View itemView)
         {
             super(itemView);
 
-            tv = (TextView) itemView.findViewById (R.id.head);
+            tv_recipe = (TextView) itemView.findViewById (R.id.title);
+            tv_des = (TextView) itemView.findViewById (R.id.body);
+            parent = itemView.findViewById (R.id.parent_ly);
         }
     }
 }
